@@ -8,6 +8,8 @@ jobs: # list of jobs
         name: hello step
       - uses: actions/checkout@v2 # <- Add this line!!!
         name: get from git
+      - run: tar -czf myrepo.tgz README.md
+        name: build zip
       - run: pwd #where are we?
         name: where are we
       - run: ls -la #let's look around'
