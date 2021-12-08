@@ -1,16 +1,15 @@
-name: my-first-gh-workflow # workflow name
-on: [push] # triggering event
-jobs: # list of jobs
-  say-hello: #job name
+name: my-first-gh-workflow  # workflow name
+on: 
+  push:
+    branches:
+      - main
+jobs:                       # list of jobs
+  say-hello:             #job name
     runs-on: ubuntu-latest
-    steps: #list of steps
-      - run: echo Hello Github Actions #step definition
-        name: hello step
-      - uses: actions/checkout@v2 # <- Add this line!!!
-        name: get from git
+    steps:                  #list of steps
+      - name: Checkout the code
+        uses: actions/checkout@v2
       - run: tar -czf myrepo.tgz README.md
-        name: build zip
-      - run: pwd #where are we?
-        name: where are we
-      - run: ls -la #let's look around'
-        name: files
+        name: Build the code   
+      - run: tar -tzvf myrepo.tgz
+        name: Test the artifact
