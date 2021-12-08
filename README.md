@@ -1,1 +1,1 @@
-# otomatoCourse
+# Otomato course
